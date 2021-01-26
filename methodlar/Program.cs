@@ -1,4 +1,5 @@
-﻿using System;
+﻿using methodlar;
+using System;
 
 namespace Metotlar
 {
@@ -6,10 +7,6 @@ namespace Metotlar
     {
         static void Main(string[] args)
         {
-            string urunAdi = "Elma";
-            double fiyati = 15;
-            string aciklama = "Amasya Elması";
-
             string[] meyveler = new string[] { };
 
             Product urun1 = new Product();
@@ -25,13 +22,25 @@ namespace Metotlar
             Product[] urunler = new Product[] { urun1, urun2 };
 
             //type-safe -- tip güvenli
-            foreach (var urun in urunler)
+            foreach (var a in urunler)
             {
-                Console.WriteLine(urun.Adi);
-                Console.WriteLine(urun.Fiyati);
-                Console.WriteLine(urun.Aciklama);
+                Console.WriteLine(a.Adi);
+                Console.WriteLine(a.Fiyati);
+                Console.WriteLine(a.Aciklama);
                 Console.WriteLine("--------------");
             }
+
+            Console.WriteLine("------------Metotlar-------------------");
+            //instance - örnek
+            //encapsulation
+
+            SepetManager sepetManager = new SepetManager();
+            sepetManager.Ekle(urun1);
+            sepetManager.Ekle(urun2);
+
+            sepetManager.Ekle2("Armut", "Yeşil armut", 12, 10);
+            sepetManager.Ekle2("Elma", "Yeşil elma", 12, 9);
+            sepetManager.Ekle2("Karpuz", "Diyarbakır karpuzu", 12, 8);
 
         }
     }
